@@ -468,6 +468,130 @@
         </div>
       </div>
       <!-- travel-sort-end -->
+      <div class="chat-bar">
+        <i></i>
+        <p>咨询</p>
+      </div>
+      <div class="chat-content">
+        <div class="cc-title">
+          <p>旅行社咨询</p>
+        </div>
+        <div class="cc-menu">
+          <span class="menu-tab-active">华东</span>
+          <span>华南</span>
+          <span>华中</span>
+          <span>华北</span>
+          <span>华东</span>
+          <span>华南</span>
+          <span>华中</span>
+          <span>华北</span>
+          <span>华东</span>
+          <span>华南</span>
+          <span>华中</span>
+          <span>华北</span>
+          <span>华东</span>
+          <span>华南</span>
+          <span>华中</span>
+          <span>华北</span>          
+        </div>
+        <div class="cc-cont">
+          <!-- <iframe src="http://www.cnqnly.com/wap/" frameborder="0"></iframe> -->
+          <div class="cont-item">
+            <div class="item-inner">
+              <div class="ii-tit">
+                <p>上海市</p>
+              </div>
+              <div class="ii-content">
+                <div class="ii-city">
+                  <img src="images/tab-city-1.jpg" alt="">
+                  <p>春之旅旅行社</p>
+                  <span>济南市</span>
+                </div>
+                <div class="ii-city">
+                  <img src="images/tab-city-1.jpg" alt="">
+                  <p>春之旅旅行社</p>
+                  <span>济南市</span>
+                </div>
+                <div class="ii-city">
+                  <img src="images/tab-city-1.jpg" alt="">
+                  <p>春之旅旅行社</p>
+                  <span>济南市</span>
+                </div>
+              </div>
+            </div>
+            <div class="item-inner">
+              <div class="ii-tit">
+                <p>北京市</p>
+              </div>
+              <div class="ii-content">
+                <div class="ii-city">
+                  <img src="images/tab-city-1.jpg" alt="">
+                  <p>春之旅旅行社</p>
+                  <span>济南市</span>
+                </div>
+                <div class="ii-city">
+                  <img src="images/tab-city-1.jpg" alt="">
+                  <p>春之旅旅行社</p>
+                  <span>济南市</span>
+                </div>
+                <div class="ii-city">
+                  <img src="images/tab-city-1.jpg" alt="">
+                  <p>春之旅旅行社</p>
+                  <span>济南市</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cont-item">
+              <div class="item-inner">
+                <div class="ii-tit">
+                  <p>上海市2</p>
+                </div>
+                <div class="ii-content">
+                  <div class="ii-city">
+                    <img src="images/tab-city-1.jpg" alt="">
+                    <p>春之旅旅行社</p>
+                    <span>济南市</span>
+                  </div>
+                  <div class="ii-city">
+                    <img src="images/tab-city-1.jpg" alt="">
+                    <p>春之旅旅行社</p>
+                    <span>济南市</span>
+                  </div>
+                  <div class="ii-city">
+                    <img src="images/tab-city-1.jpg" alt="">
+                    <p>春之旅旅行社</p>
+                    <span>济南市</span>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="cont-item">
+              <div class="item-inner">
+                <div class="ii-tit">
+                  <p>上海市3</p>
+                </div>
+                <div class="ii-content">
+                  <div class="ii-city">
+                    <img src="images/tab-city-1.jpg" alt="">
+                    <p>春之旅旅行社</p>
+                    <span>济南市</span>
+                  </div>
+                  <div class="ii-city">
+                    <img src="images/tab-city-1.jpg" alt="">
+                    <p>春之旅旅行社</p>
+                    <span>济南市</span>
+                  </div>
+                  <div class="ii-city">
+                    <img src="images/tab-city-1.jpg" alt="">
+                    <p>春之旅旅行社</p>
+                    <span>济南市</span>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
 
 
 
@@ -566,6 +690,43 @@
       document.getElementById("demo").textContent = ret.index;
     }
   });
+
+  var visib = false;
+
+  // $('.chat-bar').touch(function () {
+    
+  // });
+  $('.chat-bar').on('click', function (e) {
+    e.stopPropagation();
+    if (visib === false) {
+      visib = true;
+      // console.log(visib);
+      $('.chat-content').css('display','block');
+    } else {
+      $('.chat-content').css('display','none');
+      visib = false;
+    }
+  });
+
+  $('.chat-content .cc-cont .cont-item').eq(0).css('display','block')
+
+  $('.chat-content .cc-menu span').on('click', function (e) {
+    $(this).addClass('menu-tab-active').siblings().removeClass('menu-tab-active');
+    $('.chat-content .cc-cont .cont-item').eq($(this).index()).css('display','block').siblings().css('display','none');
+  });
+
+  $(".chat-content").on("touchmove",function(e){
+      e.preventDefault();
+  }); 
+
+  $(document).on('click',function (e) {
+    console.log(e);
+    if(!$(e.target).closest(".chat-content").length){
+      $('.chat-content').css('display','none');
+      visib = false;
+    }
+  })
+
 </script>
 
 </html>
